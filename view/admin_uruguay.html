@@ -1,0 +1,136 @@
+{include="header"}
+
+<div class="container-fluid">
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="page-header">
+            <h1>
+               <i class="fa fa-globe" aria-hidden="true"></i> Uruguay
+               <a class="btn btn-xs btn-default" href="{$fsc->url()}" title="Recargar la página">
+                  <span class="glyphicon glyphicon-refresh"></span>
+               </a>
+            </h1>
+            <p class="help-block">
+               Este plugin está en desarrollo. Eres libre de aportar lo que puedas:
+               <a href="https://www.facturascripts.com/plugin/uruguay" target="_blank">https://www.facturascripts.com/plugin/uruguay</a>
+            </p>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-sm-4">
+         {if="$fsc->empresa->codpais=='URY'"}
+         <a href="{$fsc->url()}&opcion=pais" class="btn btn-block btn-success">
+            <span class="glyphicon glyphicon-ok"></span> &nbsp; Establecer Uruguay como pais por defecto
+         </a>
+         {else}
+         <a href="{$fsc->url()}&opcion=pais" class="btn btn-block btn-warning">
+            <span class="badge">1</span> &nbsp; Establecer Uruguay como pais por defecto
+         </a>
+         {/if}
+         <br/>
+      </div>
+      <div class="col-sm-4">
+         {if="$fsc->empresa->coddivisa=='UYU'"}
+         <a href="{$fsc->url()}&opcion=moneda" class="btn btn-block btn-success">
+            <span class="glyphicon glyphicon-ok"></span> &nbsp; Establecer UYU como moneda por defecto
+         </a>
+         {else}
+         <a href="{$fsc->url()}&opcion=moneda" class="btn btn-block btn-warning">
+            <span class="badge">2</span> &nbsp; Establecer UYU como moneda por defecto
+         </a>
+         {/if}
+         <br/>
+      </div>
+      <div class="col-sm-4">
+         {if="$fsc->formato_divisa_ok()"}
+         <a href="index.php?page=admin_home#avanzado" target="_blank" class="btn btn-block btn-success">
+            <span class="glyphicon glyphicon-ok"></span> &nbsp; Formato de moneda: {$fsc->show_precio(1234)}
+         </a>
+         {else}
+         <a href="index.php?page=admin_home#avanzado" target="_blank" class="btn btn-block btn-default">
+            <span class="glyphicon glyphicon-wrench"></span>&nbsp; Formato de moneda: {$fsc->show_precio(1234)}
+         </a>
+         <p class="help-block">
+            Puedes cambiar la posición del símbolo de la moneda, el separados de millares, etc, desde el panel de control.
+         </p>
+         {/if}
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-sm-4">
+         {if="$fsc->impuestos_ok()"}
+         <a href="{$fsc->url()}&opcion=impuestos" class="btn btn-block btn-success">
+            <span class="glyphicon glyphicon-ok"></span> &nbsp;
+            Establecer impuestos de Uruguay
+         </a>
+         {else}
+         <a href="{$fsc->url()}&opcion=impuestos" class="btn btn-block btn-default">
+            <span class="badge">3</span> &nbsp;
+            Establecer impuestos de Uruguay
+         </a>
+         {/if}
+         <br/>
+      </div>
+      <div class="col-sm-4">
+         {if="$fsc->regimenes_ok()"}
+         <a href="{$fsc->url()}&opcion=regimenes" class="btn btn-block btn-success">
+            <span class="glyphicon glyphicon-ok"></span> &nbsp;
+            Establecer regímenes de {#FS_IVA#} para clientes
+         </a>
+         {else}
+         <a href="{$fsc->url()}&opcion=regimenes" class="btn btn-block btn-default">
+            <span class="badge">4</span> &nbsp;
+            Establecer regímenes de {#FS_IVA#} para clientes
+         </a>
+         {/if}
+         <br/>
+      </div>
+      <div class="col-sm-4">
+         {if="$fsc->ejercicio_ok()"}
+         <a href="index.php?page=contabilidad_ejercicio&cod={$fsc->empresa->codejercicio}" target="_blank" class="btn btn-block btn-success">
+            <span class="glyphicon glyphicon-ok"></span> &nbsp;
+            Importar los datos contables
+         </a>
+         {else}
+         <a href="index.php?page=contabilidad_ejercicio&cod={$fsc->empresa->codejercicio}" target="_blank" class="btn btn-block btn-default">
+            <span class="badge">5</span> &nbsp;
+            Importar los datos contables
+         </a>
+         {/if}
+         <br/>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="page-header">
+            <h2>
+               <i class="fa fa-money" aria-hidden="true"></i>
+               ¿Usas más de una divisa?
+            </h2>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-sm-2">
+         {if="in_array('google_divisas',$GLOBALS['plugins'])"}
+         <a href="index.php?page=admin_home#descargas" class="btn btn-sm btn-success btn-block">
+            <span class="glyphicon glyphicon-ok"></span>&nbsp; Google Divisas
+         </a>
+         {else}
+         <a href="index.php?page=admin_home#descargas" class="btn btn-sm btn-default btn-block">
+            <i class="fa fa-puzzle-piece" aria-hidden="true"></i>&nbsp; Google Divisas
+         </a>
+         {/if}
+      </div>
+      <div class="col-sm-10">
+         <p class="help-block">
+            Si utilizas más de una divisa, entonces es muy recomendable que instales
+            el plugin google_divisas para actualizar las tasas de conversión de todas
+            las divisas.
+         </p>
+      </div>
+   </div>
+</div>
+
+{include="footer"}
