@@ -167,7 +167,7 @@ class admin_uruguay extends fs_controller
       $fsext->to = 'contabilidad_ejercicio';
       $fsext->type = 'fuente';
       $fsext->text = 'Plan contable Uruguay';
-      $fsext->params = 'plugins/uruguay/extras/uruguay.xml';
+      $fsext->params = 'plugins/fs_uruguay/extras/uruguay.xml';
       $fsext->save();
    }
    
@@ -245,33 +245,6 @@ class admin_uruguay extends fs_controller
    
    private function set_impuestos()
    {
-      /*/// eliminamos los impuestos que ya existen (los de España)
-      $imp0 = new impuesto();
-      foreach($imp0->all() as $impuesto)
-      {
-         $this->desvincular_articulos($impuesto->codimpuesto);
-         $impuesto->delete();
-      }
-      
-      /// añadimos los de Uruguay
-      $codimp = array("IVA22","IVA10","IVA0");
-      $desc = array("IVA 22%","IVA 10%","IVA 0%");
-      $recargo = 0;
-      $iva = array(22, 10, 0);
-      $cant = count($codimp);
-      for($i=0; $i<$cant; $i++)
-      {
-         $impuesto = new impuesto();
-         $impuesto->codimpuesto = $codimp[$i];
-         $impuesto->descripcion = $desc[$i];
-         $impuesto->recargo = $recargo;
-         $impuesto->iva = $iva[$i];
-         $impuesto->save();
-      }
-      
-      $this->impuestos_ok = TRUE;
-      $this->new_message('Impuestos de Uruguay añadidos.');
-	  */
 	  
         $impuestos = new impuesto();
         //Eliminamos los Impuestos que no son de UY
